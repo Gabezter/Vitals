@@ -1,0 +1,145 @@
+#
+# Vitals Localization - pzxc.com / 6d7.com
+# This file contains English localization strings for all messages in the plugin. You can edit this file directly 
+# (and use /vreload in-game to load any changes), or you can make a new language file and change the global_language setting in config.yml
+#
+# BE CAREFUL NOT TO USE APOSTROPHES IN YOUR STRINGS!!
+#
+
+
+##### Plugin messages
+
+anticaps: 'Your message contained too many capital letters to send.'
+arena_disabledcommand: '&cYou cannot use that command during an arena match.'
+arena_signupinfo: '&7Signup for the next arena match will start in '
+auction_failactive: '&7There is already an item being auctioned right now. You have to wait until the auction ends before putting a new item up for auction.'
+auction_failevent: '&7You cannot start an auction while another global event is taking place.'
+auction_faildelay: '&7An auction closed recently. Another auction can be started in '
+auction_failmoney: '&7You can't afford to start an auction. The fee is $'
+auction_failqueue: '&7You were the last person to auction an item; you must wait until someone else does an auction before you can do another one.'
+auction_failitem: '&7You must have the item you wish to auction in your hand before doing /auction.'
+auction_failstartingbid: 'If you want to specify a starting bid it has to be a whole number greater than zero.'
+auction_success: '&7Your auction has begun! The listing fee has been deducted from your account.'
+auction_nobids: '&b[Auction] No bids - the item has been returned to the owner.'
+auction_sold: '&b[Auction] Sold! The winning bid was $'
+auction_nospace: '&cYou won the auction but your inventory is full! Item delivery will be re-attempted in 60 seconds - if there are no free spaces in your inventory at that time, the item will be permanently lost.'
+auction_itemlost: '"&cNo free space in inventory, item has been permanently lost. Sorry, no refunds!"'
+auctionbid_failactive: '&7There is nothing being auctioned right now.'
+auctionbid_failstarter: '&7You cannot bid on your own auctions.'
+auctionbid_failbidder: '&7Bid failed: You are already the high bidder.'
+auctionbid_failnumber: '&7You can only bid in whole numbers like 1, 5, 10, etc.'
+auctionbid_failtoolow: '&7Bid failed: That bid is too low. The current high bid is $'
+auctionbid_failmoney: '&7Bid failed: you do not have that much money.'
+auctionbid_success: '&7Your bid was accepted! You are the new high bidder.'
+auctionbid_outbid: '&eYou were outbid! The new high bid is $'
+betterhelp_unknown: 'There is no help available for a command by that name.'
+bounty_noneactive: 'There are currently no bounties available.'
+bounty_failnumber: 'The reward amount must be a positive whole number'
+bounty_failtoolow: 'The minimum new bounty is $'
+bounty_success: 'Bounty accepted: the money has been deducted from your account.'
+bounty_announcenew: ' has put up a new bounty of $'
+bounty_announcetotal: ' is the total reward for whoever can kill '
+bounty_announcekill: ' was awarded the bounty for killing '
+customwarps_action: '&cWarping to '
+featherfly_effect: 'You are floating on the wind!'
+featherfly_effectothers: ' is floating on the wind!'
+featherfly_cancel: 'You have returned to the ground.'
+featherfly_cancelothers: ' has returned to the ground.'
+regionlabels_enter: '&b--- You have entered {region} ---'
+superchainmail_effect: 'Your chainmail armor reduced damage by '
+region_select1: 'Right-click a corner of the region.'
+region_select2: 'Now right-click the opposite corner.'
+towny_restricted: 'This plot is restricted, you cannot buy it.'
+towny_sethomereminder1: 'Successfully claimed does NOT mean that you were able to claim this plot, only that it exists.'
+towny_sethomereminder2: 'To see if you were successful, see who is listed as owner when you type &a/towny map'
+towny_sethomereminder3: '&7Tip: you can set this place as your home with &a/sethome&7 - then you can teleport back here anytime with &a/home'
+
+
+##### Command help and syntax messages
+
+announceHelp: List/add/edit/remove announcements.
+announceSyntax: /<command> <list,add,edit,remove> <id> <message>
+
+arenaHelp: Play arena matches (PvP, Team PvP, Spleef, HungerGames, or RaceToTheFinish) with prizes.
+arenaSyntax: /<command>
+
+auctionHelp: Put the item in your hand up for auction.
+auctionSyntax: /<command>
+
+bidHelp: Bid on an item that is up for auction.
+bidSyntax: /<command> {amount}
+
+bountyHelp: See the top bounties, or put up a reward for anyone who can kill your named enemy
+bountySyntax: /<command> | /<command> [player] [amount]
+
+buyrankHelp: Buy a promotion to a higher rank.
+buyrankSyntax: /<command> {rank}
+
+chunkregenHelp: Regenerative the chunk you are standing in, and clears blocks above if you if chunkregen_clearabove is turned on.
+chunkregenSyntax: /<command>
+
+countdownHelp: Start a countdown for a specified number of seconds, with a message to be broadcasted as it counts down
+countdownSyntax: /<command> [seconds] [message]
+
+customwarpHelp: Defines a custom warp that players can warp to with /[warpname], if they have the permission vitals.customwarps.[warpname]. Use /customwarp [warpname] delete to delete a custom warp.
+customwarpSyntax: /<command> {warpname}
+
+dateHelp: Get the current game date and time.
+dateSyntax: /<command>
+dateAdminSyntax: /<command> [MM/DD/YYYY]
+
+findplotHelp: Teleport to the cheapest plot for sale.
+findplotSyntax: /<command>
+
+findmyplotHelp: Teleport to the first plot that you own.
+findmyplotSyntax: /<command>
+
+helpHelp: List commands you can use.
+helpSyntax: /<command>
+helpAdminSyntax: /<command> [addbasic,addadvanced,remove] [command]
+
+helperbotHelp: Add, change, or delete helperbot entries.
+helperbotSyntax: To add or change, /<command> {word1} {word2} {response}. To delete, /<command> {word1} {word2} delete. To list, /<command> list
+
+gmallHelp: Shows you who is in creative mode, who is in survival mode, who is op, and who is flying.
+gmallSyntax: /<command>
+
+modvoteHelp: Vote for who you think would be the best moderator.
+modvoteSyntax: /<command> {name}
+
+newsHelp: Shows the latest server news.
+newsSyntax: /<command>
+newsAdminSyntax: /<command> [add,edit,delete] [message]
+
+passwordHelp: Sets a password to login to the website 
+passwordSyntax: /<command> {yourpassword}
+
+playtimeHelp: Shows your total playtime.
+playtimeSyntax: /<command>
+
+plotsalesignHelp: Place a for-sale sign on the current plot.
+plotsalesignSyntax: /<command> [material], /<command> [material] remove
+
+regionlabelHelp: Allows you to label a region to be announced to players as they enter and leave ("normal" from bedrock to sky x/z cuboid, or "exact" x/y/z cuboid)
+regionlabelSyntax: /<command> {name} {normal,exact,delete} | /<command> list
+
+regionprotectHelp: Allows you to protect a region from block placement and destruction.
+regionprotectSyntax: /<command> {name} {protect,delete} | /<command> list
+
+regionsaveHelp: Save the state of a region to be restored later (all blocks, or inventory blocks only)
+regionsaveSyntax: /<command> {name} {all,inventory,delete} | /<command> list
+
+regionrestoreHelp: Restores the state of a region.
+regionrestoreSyntax: /<command> {name}
+
+serverlogarchiveHelp: Archives the server log.
+serverlogarchiveSyntax: /<command>
+
+plotsalesignHelp: Place a grass/wool FOR SALE sign on the plot you are standing on
+plotsalesignSyntax: /<command>
+
+warnHelp: Warns a player for violating a server rule, increasing his or her warn level.
+warnSyntax: /<command> [player] [reason]
+
+wordswapHelp: Replaces words in chat with new words.
+wordswapSyntax: /<command> [word] [replacement] for a new swap, /<command> [word] to delete a swap, or /<command> to see a list of all swaps

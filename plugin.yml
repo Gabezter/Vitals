@@ -1,0 +1,217 @@
+name: Vitals
+version: 0.37
+author: pzxc
+website: http://6d7.com/
+depend: [Vault]
+main: com.pzxc.Vitals.Vitals
+commands:
+  vhelp:
+    description: List the current vitals settings from memory, or shows the size of hashmaps running in memory, or lists the latest 10 entries from the events log
+    usage: /<command> [settings,memory,events]
+  vreload:
+    description: Reload any changes made to the config.yml file while the server was running
+    usage: /<command>
+  vtoggle:
+    description: Turn a Vitals module on or off
+    usage: /<command> <modulename>
+  vsetting:
+    description: Change a Vitals setting from in-game, without the need to edit the config.yml file.
+    usage: /<command> <setting> <value>
+permissions:
+  v.admin:
+    description: Can use /vhelp, /vtoggle, /vsetting, /vreload
+    default: op
+  v.eventbroadcasts:
+    description: Can see all event broadcasts (auctions, arena, etc) (negate this permission to mute)
+    default: true
+  v.announce:
+    description: Can list/add/edit/remove announcements with /announce
+    default: op
+  v.antiadvertising.bypass:
+    description: Can send domains and IP addresses in chat
+    default: op
+  v.anticaps.bypass:
+    description: Can talk in all caps
+    default: op
+  v.arena:
+    description: Can participate in arenas with /arena
+    default: true
+  v.arena.admin:
+    description: Can use /arena list, /arena setup, /arena start, /arena info
+    default: op
+  v.auction:
+    description: Can put an item up for auction with /auction
+    default: op
+  v.auction.bid:
+    description: Can bid in an auction with /bid [amount]
+    default: true
+  v.auction.skipqueue:
+    description: Can auction repeatedly without waiting for someone else
+    default: op
+  v.auction.startingbid:
+    description: Can use /auction [startingbid]
+    default: op
+  v.blazerodfireball:
+    description: Can right-click with a blaze rod to cast a fireball (uses up the blaze rod)
+    default: true
+  v.bouncysponges:
+    description: Sponges make you bounce when you step on them, and you take no falling damage when landing on a sponge
+    default: true
+  v.bounty:
+    description: Can list bounties with /bounty
+    default: true
+  v.bounty.buy:
+    description: Can purchase a bounty with /bounty [player] [amount]
+    default: true
+  v.buyrank:
+    description: Can buy promotions with /buyrank
+    default: true
+  v.chatworlds.bypass:
+    description: Can see chat messages from all worlds even if Chatworlds is enabled
+    default: op
+  v.chunkregen:
+    description: Can use /chunkregen
+    default: op
+  v.countdown:
+    description: Can start a countdown with /countdown [seconds] [message]
+    default: op
+  v.customwarp:
+    description: Can define a custom warp with /customwarp [warpname], or delete with /customwarp [warpname] delete
+    default: op
+  v.customwarps.[warpname]:
+    description: Can use the custom warp /[warpname]
+    default: op
+  v.customwarps.*:
+    description: Can use all custom warps
+    default: op
+  v.date:
+    description: Can use /date
+    default: true
+  v.date.admin:
+    description: Can change the world date with /date [MM/DD/YYYY]
+    default: op
+  v.deathretention.experience:
+    description: Keep experience when you die
+    default: op
+  v.deathretention.allitems:
+    description: Keep all items when you die
+    default: op
+  v.deathretention.armor:
+    description: Keep armor when you die
+    default: false
+  v.deathretention.weapons:
+    description: Keep weapons (swords,axes,bows,arrows) when you die
+    default: false
+  v.deathretention.tools:
+    description: Keep tools (axes,pickaxes,shovels,hoes) when you die
+    default: false
+  v.emeraldblockhaste:
+    description: Emerald blocks make you sprint when you walk on them
+    default: true
+  v.featherfly:
+    description: Right-clicking with a feather lets you fly, but it uses up feathers over time
+    default: true
+  v.findplot:
+    description: Can find the cheapest plot for sale with /findplot
+    default: op
+  v.findmyplot:
+    description: Can find your own plot with /findmyplot
+    default: true
+  v.findmyplot.others:
+    description: Can find the plots of other players with /findmyplot [player] [plot#]
+    default: op
+  v.gmall:
+    description: Can see gamemode of all online players /gmall, or specific player with /gmall [player]
+    default: op
+  v.gmall.admin:
+    description: Can set all online players to a gamemode with /gmall [survival,creative,adventure]
+    default: op
+  v.help:
+    description: Can use /help if BetterHelp is enabled
+    default: true
+  v.help.admin:
+    description: Can add/remove commands to BetterHelp with /help [addbasic,addadvanced,remove] [command]
+    default: op
+  v.helperbot:
+    description: HelperBot will respond to your inquiries by searching for wordpairs and giving a response
+    default: true
+  v.helperbot.admin:
+    description: Can add/change/delete helperbot entries with the /helperbot command
+    default: op
+  v.modvote:
+    description: Can vote for someone to be a moderator with /modvote [player]
+    default: true
+  v.modvote.top:
+    description: Can use /modvote top, the list of top players voted to be mod
+    default: op
+  v.modvote.reset:
+    description: Can reset the list of modvotes with /modvote reset
+    default: op
+  v.news:
+    description: Can use /news if BetterNews is enabled
+    default: true
+  v.news.admin:
+    description: Can edit the news with /news [add|edit|delete] [message]
+    default: op
+  v.password:
+    description: Can use /password
+    default: true
+  v.playtime:
+    description: Can see your own playtime with /playtime
+    default: true
+  v.playtime.average:
+    description: Can see average daily playtime as well as total playtime on all playtime reports
+    default: op
+  v.playtime.others:
+    description: Can see playtime of other players with /playtime [player]
+    default: op
+  v.playtime.top:
+    description: Can use /playtime top, the list of players with the most playtime
+    default: op
+  v.plotsalesign:
+    description: Can place a grass/wool FOR SALE pattern on the current plot with /plotsalesign
+    default: op
+  v.regionlabels:
+    description: Shows you a message when you enter or leave a region that has a regionlabel
+    default: true
+  v.regionlabels.admin:
+    description: Can setup regionlabels with /regionlabel [name]
+    default: op
+  v.regionprotect:
+    description: Can protect regions with /regionprotect
+    default: op
+  v.regionprotect.bypass:
+    description: Can place/break blocks in protected regions
+    default: op
+  v.regionrestore:
+    description: Can save and restore regions with /regionsave and /regionrestore
+    default: op
+  v.restrictedplots.buy:
+    description: Can buy plots that are for sale at the restricted price
+    default: op
+  v.safejukebox:
+    description: Clicking a jukebox with a record plays the record without inserting it into the jukebox
+  v.serverlogarchive:
+    description: Can use /serverlogarchive
+    default: op
+  v.superchainmail:
+    description: Your chainmail armor provide damage reduction
+    default: true
+  v.usefulcompass:
+    description: Your compass points at the nearest player
+    default: true
+  v.villagerpermission:
+    description: Can trade with villagers
+    default: op
+  v.warn:
+    description: Can warn a player for inappropriate behavior with /warn [player] [reason]
+    default: op
+  v.warn.admin:
+    description: Can decrease a player's warning level with /warn [player] decrease
+    default: op
+  v.warn.exempt:
+    description: Immune to /warn
+    default: op
+  v.wordswap:
+    description: Can use /wordswap
+    default: op

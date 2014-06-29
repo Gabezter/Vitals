@@ -1,0 +1,172 @@
+#
+# Vitals Plugin Configuration - pzxc.com / 6d7.com
+# This config.yml file is created automatically when the plugin starts if it doesn't already exist
+# 
+
+############################
+##### MODULE SELECTION #####
+############################
+# to see which modules are turned on, type /vhelp
+# for more info about each module, type /vhelp <modulename>
+# to turn one of these mods on or off, type /vtoggle <modulename>
+############################
+# featurename: true/false     # description
+############################
+
+# ADMINISTRATION MODS
+gamemodeall: false            # see who is in which gamemode, or set everyone's gamemode
+chunkregen: false             # regenerate the chunk you're standing on
+countdown: false              # start a countdown with the message broadcasting more frequently as it counts down
+onlineplayersflatfile: false  # continuously writes list of online players to onlineplayers.txt in the data folder
+regionlabels: false           # announce to players as they enter/leave regions on the map
+regionprotect: false          # protect regions from changes
+regionrestore: false          # save and restore regions
+wordswap: false               # substitute certain words with other words in chat
+
+# ANTIGRIEFING MODS
+abandonedminecarts: false     # destroy minecarts that have been motionless for more than 2 minutes
+antiadvertising: false        # take actions when someone says IP addresses or domain names in chat
+anticaps: false               # prevent players from talking in all-caps or mostly all-caps
+antistickykeys: false         # shorten characters repeated 5 or more times to 1 (LOL!!!!!!! becomes LOL!)
+antiovercrowding: false       # handle overcrowding
+unkillablevillagers: false    # makes villagers immortal
+oponlyfromconsole: false      # only allows /op and /deop to be used from console, not by players
+
+# OTHER MODS
+announcements: false          # list of messages to be broadcast in sequence or at random, every X seconds
+arena: false                  # compete against other players in spleef, pvp, hunger games, or race events
+auctions: false               # put items up for auction to be bid on by other players
+betterhelp: false             # simplified /help system, with 2 lists of commands, basic and advanced
+betternews: false             # simplified /news system
+bounties: false               # rewards offered to kill certain players (set by other players or when they kill someone)
+chatworlds: false             # players only see chat from the world they are in
+customwarps: false            # define warps players can use by typing /<warpname>
+damageditemsales: false       # overrides essentials /worth and /sell hand to account for items with durability
+econpromotions: false         # buy promotions using in-game money
+gameplay: false               # many different mechanics mods, like superchainmail, bouncy sponges, useful compass, etc (each can be turned on/off)
+helperbot: false              # list of keywords/responses to be automatically responded to in chat
+modvote: false                # vote for who you think should be a moderator
+modwarnings: false            # warn players, take actions at certain warn levels, and log the warnings
+playerpasswords: false        # associate a password with your account to be used for website integration
+playtime: false               # keep track of how long you've played, and get promotions at certain amounts of playtime
+serverlogarchive: false       # archive the server log automatically every X hours or on command
+townymods: false              # several different towny mods, like findplot, findmyplot, sethomereminder, and restrictedplots
+worlddate: false              # keep track of the "minecraft date" and time, with optional announcements at dawn/dusk
+
+
+#############################
+###### MODULE SETTINGS ######
+#############################
+# to change a setting from in-game, type /vsetting <settingname> <value>
+# or you can change the config file directly, then use /vreload to load the new settings in-game
+#############################
+
+global_debug: false                            # logs extra info to the console about what is going on behind the scenes
+global_language: 'english'                     # which language/localization file to use
+global_teleportdelayseconds: 5                 # warmup time for all teleport actions throughout Vitals
+global_maximumsimultaneousblockchanges: 15000  # max number of blocks to change in one action, to prevent possible lag/crash
+global_autokickcommands: op,deop,give,kickall  # players who try to use these commands without being op are autokicked
+global_hideeventsfromconsole: false            # hides event broadcasts (arena status, auctions, etc) from showing in the console
+announcements_random: false                    # whether announcements are broadcast randomly or in sequence
+announcements_prefix: '&c[Announcement] '      # prefix attached at the beginning of each announcement message
+announcements_interval: 180                    # how many seconds between announcements
+antiadvertising_action: secretmute             # what to do when advertising is detected
+antiadvertising_whitelist: 127.0.0.1,6d7.com   # ip addresses and domains that don't count as advertising
+anticaps_cutoffpercent: 70                     # percent of capital letters in a message for it to be considered in all-caps
+antiovercrowding_maxentities: 50               # if more than this number of entities are within a 9x9x9 area, some will commit suicide
+auctions_fee: 100                              # economy cost for starting an auction
+auctions_duration: 120                         # how long an auction lasts, in seconds
+auctions_announceinterval: 30                  # how long between status announcements, in seconds
+auctions_timebetweenauctions: 180              # how long after an auction ends before another can be started, in seconds
+auctions_preventsniping: true                  # bids made in the last 45 seconds reset the time remaining to 45 seconds
+betterhelp_basiccommands: afk,back,rules,spawn # basic commands listed when players do /help
+betterhelp_advancedcommands: home,sethome      # advanced commands listed when players do /help advanced
+betternews_showonlogin: 1                      # how many latest news entries to show when players log in
+betternews_showoncommand: 5                    # how many latest news entries to show when players type /news
+bounties_amountperkill: 1000                   # automatic reward set when a player kills someone they haven't killed recently
+bounties_cooldownminutes: 720                  # after someone collects a bounty on you, you won't be given a new bounty automatically for kills for this long
+bounties_minimumnewbounty: 500                 # minimum amount for bounties bought by players with the /bounty command
+chatworlds_globalkeywords: '[mod],[admin]'     # chat containing any of these keywords are sent to all worlds
+chunkregen_clearabove: true                    # deletes blocks at your level or above when using /chunkregen
+damageditemsales_leathervalue: 5               # how much each leather is worth
+damageditemsales_ironingotvalue: 21            # how much each ironingot is worth
+damageditemsales_goldingotvalue: 60            # how much each goldingot is worth
+damageditemsales_firevalue: 90                 # how much each fire is worth (for chain armor)
+damageditemsales_diamondvalue: 276             # how much each diamond is worth
+damageditemsales_woodvalue: 2                  # how much each wood is worth
+damageditemsales_stonevalue: 2                 # how much each stone is worth
+damageditemsales_stringvalue: 7                # how much each string is worth (for bows/fishing rods)
+econpromotions_ranks: Citizen,Noble,30000      # what ranks are available to purchase with the /buyrank command: rankneeded,rankname,cost;rankneeded,rankname,cost;etc
+gameplay_blazerodfireball: true                # right-clicking with a blazerod casts a fireball, but it uses up the blazerod
+gameplay_bouncysponges: true                   # sponges make you superjump when you step on them, and you don't take falling damage if you land on a sponge
+gameplay_damagestopsflying: true               # players who take damage while flying fall to the ground
+gameplay_deathretention: true                  # keep some/all items and/or experience when you die
+gameplay_deathretention_costperitem: 20        # economy amount deducted per item kept via deathretention
+gameplay_deathretention_disableduringarenas: true # temporarily disable deathretention for players in arena matches 
+gameplay_emeraldblockhaste: true               # stepping/running on emerald blocks give you a burst of speed
+gameplay_featherfly: true                      # right-clicking with a feather makes you fly, but it uses up feathers
+gameplay_featherfly_interval: 5                # one feather is used up every X seconds while flying
+gameplay_safejukebox: true                     # jukeboxes play records without inserting them, so they can't be stolen
+gameplay_superchainmail: 0.8                   # damage reduction provided by each piece of chain armor worn (for example 0.8 = 20% reduction, or 1.0 to disable)
+gameplay_usefulcompass: true                   # compasses always point at the nearest player, if there is one
+gameplay_villagerpermission: false             # only players with permission v.villagerpermission can trade with villagers
+gameplay_villagerprofessions: 'BLACKSMITH,PRIEST' # list of professions you do NOT want villagers to be (empty string '' to allow all villager professions)
+helperbot_chatprefix: '&e[HelperBot]&f: '      # prefix attached to helperbot responses
+modwarnings_level2: '/mute {player} 5min'      # action to take at warning level 2
+modwarnings_level3: '/mute {player} 30min'     # action to take at warning level 3
+modwarnings_level4: '/kick {player}'           # action to take at warning level 4
+modwarnings_level5: '/tempban {player} 30min'  # action to take at warning level 5
+modwarnings_level6: '/tempban {player} 1day'   # action to take at warning level 6
+modwarnings_decayminutes: 30                   # warning level goes down by 1 after this long
+modwarnings_showlevel: true                    # whether to show warn prefix when warned players chat
+modwarnings_chatprefix: '&6[WARNED*]&f'        # prefix to show
+playtime_autocleanup: true                     # purge players with less than 1 day playtime when they haven't been on for a week
+playtime_promotions: Wanderer,Citizen,120      # ranks to be autopromoted to after X minutes of playtime: fromrank,torank,minutes;fromrank,torank,minutes;etc
+regionprotect_ignoreblockidlist: 80            # unprotected block types in protected regions
+serverlogarchive_intervalhours: 24             # automatically archive the server log every X hours
+serverlogarchive_daystokeep: -1                # delete archives older than X day (-1 = keep all archives)
+townymods_findplot: false                      # teleport to the cheapest plot for sale in your town
+townymods_findmyplot: false                    # teleport to the first plot that you own
+townymods_sethomereminder: false               # reminds you to use /sethome when you buy a plot
+townymods_plotsalesign: false                  # create a grass/wool for sale sign on the plot/chunk you're standing on
+townymods_restrictedplots: -1                  # players can't buy towny plots at this price unless they have the permission v.restrictedplots.buy (-1 to disable)
+worlddate_startdate: 01/01/3000                # starting "minecraft date" for your server
+worlddate_monthnames: Spring,Summer,Fall,Winter # names of your months
+worlddate_dayspermonth: 100                    # how many days per month
+worlddate_announce: true                       # announce the game date/time at dawn and dusk
+
+
+####################################
+########## ARENA SETTINGS ##########
+####################################
+
+arena_numpvparenas: 1                          # how many pvp arenas there are
+arena_numracearenas: 1                         # how many race arenas there are
+arena_minutesbetweengames: 180                 # how long between automatic arena matches
+arena_minutestosignup: 5                       # how long of a signup period
+arena_announceintervalseconds: 30              # interval between arena status announcements
+arena_minimumplayers: 4                        # cancel an arena match if it doesn't get at least this many signups
+arena_maxminutesgamecanlast: -1                # end an arena match if it lasts this long
+arena_prizefirstplace: 200                     # economy prize for 1st place
+arena_prizesecondplace: 125                    # economy prize for 2nd place
+arena_prizethirdplace: 50                      # economy prize for 3rd place
+arena_multiplyprizesbynumberofplayers: true    # prizes get bigger the more players that sign up
+arena_preventplayersfromleaving: true          # players in an active match can't leave the arena
+arena_preventnonplayersfromentering: true      # players not in an active match can't enter the arena
+arena_noinventorychanges: false                # if true, the arena system will not modify player inventories at all
+arena_spleefblockid: 80                        # which block is used to create the spleef arena
+arena_spleefarenadecay: true                   # whether the spleef arena gradually shrinks over time
+arena_hungergamesmaxplayers: 4                 # maximum number of players allowed to signup for a hungergames match
+arena_hungergamesregionrestore: true           # automatically restore the "hungergames" region saved with /regionsave
+arena_raceprizemultiplier: 3.0                 # multiply prizes by this when it's a race event
+arena_hungergamesprizemultiplier: 3.0          # multiply prizes by this when it's a hungergames event
+arena_chanceSpleef: 4                          # relative chance for a random arena match to be the Spleef format
+arena_chanceDoubleSpleef: 4                    # relative chance for a random arena match to be the DoubleSpleef format
+arena_chanceNaked: 1                           # relative chance for a random arena match to be the Naked format
+arena_chanceIronman: 1                         # relative chance for a random arena match to be the Ironman format
+arena_chanceArchery: 1                         # relative chance for a random arena match to be the Archery format
+arena_chanceDiamond: 1                         # relative chance for a random arena match to be the Diamond format
+arena_chanceTeam: 4                            # relative chance for a random arena match to be the Team PVP format
+arena_chanceHungerGames: 0                     # relative chance for a random arena match to be the HungerGames format
+arena_chanceRaceToTheFinish: 0                 # relative chance for a random arena match to be the Race format
+arena_disabledcommands: warp,spawn,back,home   # commands that can't be used during an arena match
