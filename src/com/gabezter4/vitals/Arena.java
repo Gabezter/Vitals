@@ -9,21 +9,22 @@
 /*     */ import java.util.List;
 /*     */ import java.util.Random;
 /*     */ import java.util.Set;
-/*     */ import java.util.logging.Logger;
-/*     */ import net.milkbowl.vault.economy.Economy;
+
 /*     */ import org.bukkit.Location;
 /*     */ import org.bukkit.Material;
-/*     */ import org.bukkit.Server;
 /*     */ import org.bukkit.World;
 /*     */ import org.bukkit.block.Block;
-/*     */ import org.bukkit.configuration.file.FileConfiguration;
-/*     */ import org.bukkit.configuration.file.YamlConfiguration;
 /*     */ import org.bukkit.entity.Player;
 /*     */ import org.bukkit.event.block.Action;
 /*     */ import org.bukkit.event.player.PlayerInteractEvent;
 /*     */ import org.bukkit.inventory.ItemStack;
-/*     */ import org.bukkit.inventory.PlayerInventory;
-/*     */ import org.bukkit.scheduler.BukkitScheduler;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
 /*     */ 
 /*     */ public class Arena
 /*     */   implements Runnable
@@ -232,8 +233,8 @@
 /* 204 */       Object p = null; Integer typeID = Integer.valueOf(20);
 /* 205 */       if ((runCount + 4) % decayInterval == 0) { p = new Predicate() { public boolean test(Integer x) { return x.intValue() != 0; }
 
-@Override
-public boolean test(Object paramT) {
+				@Override
+				public boolean test(Object paramT) {
 	// TODO Auto-generated method stub
 	return false;
 } } ;
