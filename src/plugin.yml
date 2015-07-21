@@ -1,9 +1,8 @@
 name: Vitals
 version: 0.37
-author: pzxc
-website: http://6d7.com/
+author: gabezter4
 depend: [Vault]
-main: com.pzxc.Vitals.Vitals
+main: com.gabezter4.Vitals.Vitals
 commands:
   vhelp:
     description: List the current vitals settings from memory, or shows the size of hashmaps running in memory, or lists the latest 10 entries from the events log
