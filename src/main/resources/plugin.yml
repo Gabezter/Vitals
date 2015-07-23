@@ -1,6 +1,6 @@
 name: Vitals
 version: 0.37
-author: gabezter4
+author: Gabezter4
 depend: [Vault]
 main: com.gabezter4.Vitals.Vitals
 commands:
