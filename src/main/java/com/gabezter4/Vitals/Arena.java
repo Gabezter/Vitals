@@ -60,7 +60,7 @@ public class Arena
     if (event.toLowerCase().contains("spleef")) { arena = "spleef";
     } else if (event.toLowerCase().contains("hunger")) { event = "HungerGames"; arena = "hungergames";
     } else if (event.toLowerCase().contains("race")) { event = "RaceToTheFinish"; arena = ("race" + (arenaNumber > 0 ? arenaNumber : random.nextInt(vitals.getConfig().getInt("arena_numracearenas")) + 1)); } else {
-      event += " PVP"; arena = (random.nextInt(vitals.getConfig().getInt("arena_numpvparenas")) + 1);
+      event += " PVP"; arena =  Integer.toString(random.nextInt(vitals.getConfig().getInt("arena_numpvparenas")) + 1);
     }List spec = vitals.config("arena").getStringList("arena." + arena + ".spectator");
     if (spec.size() < 3) { eventEnd(false); vitals.broadcastEvent("&4[" + event + "] &7Could not start match because the arena has not been set up."); return; }
     world = vitals.getServer().getWorld((String)spec.get(0)); spectator = new Location(world, Double.parseDouble((String)spec.get(1)) + 0.5D, Double.parseDouble((String)spec.get(2)) + 1.0D, Double.parseDouble((String)spec.get(3)) + 0.5D);
@@ -154,9 +154,9 @@ public class Arena
         p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.DIAMOND_SWORD, 1), new ItemStack(Material.DIAMOND_SWORD, 1), new ItemStack(Material.BOW, 1), new ItemStack(Material.ARROW, 8) });
       } else if (event.equalsIgnoreCase("Team PVP")) { p.getInventory().clear();
         if (((String)teams.get(p.getName())).equals("Brown")) p.getInventory().setArmorContents(new ItemStack[] { new ItemStack(Material.LEATHER_BOOTS, 1), new ItemStack(Material.LEATHER_LEGGINGS, 1), new ItemStack(Material.LEATHER_CHESTPLATE, 1) });
-        if (((String)teams.get(p.getName())).equals("Gray")) p.getInventory().setArmorContents(new ItemStack[] { 0, 0, new ItemStack(Material.IRON_CHESTPLATE, 1) });
-        if (((String)teams.get(p.getName())).equals("Blue")) p.getInventory().setArmorContents(new ItemStack[] { new ItemStack(Material.DIAMOND_BOOTS, 1), 0, 0, new ItemStack(Material.DIAMOND_HELMET, 1) });
-        if (((String)teams.get(p.getName())).equals("Gold")) p.getInventory().setArmorContents(new ItemStack[] { new ItemStack(Material.GOLD_BOOTS, 1), new ItemStack(Material.GOLD_LEGGINGS, 1), 0, new ItemStack(Material.GOLD_HELMET, 1) });
+        if (((String)teams.get(p.getName())).equals("Gray")) p.getInventory().setArmorContents(new ItemStack[] { null, null, new ItemStack(Material.IRON_CHESTPLATE, 1) });
+        if (((String)teams.get(p.getName())).equals("Blue")) p.getInventory().setArmorContents(new ItemStack[] { new ItemStack(Material.DIAMOND_BOOTS, 1), null, null, new ItemStack(Material.DIAMOND_HELMET, 1) });
+        if (((String)teams.get(p.getName())).equals("Gold")) p.getInventory().setArmorContents(new ItemStack[] { new ItemStack(Material.GOLD_BOOTS, 1), new ItemStack(Material.GOLD_LEGGINGS, 1), null, new ItemStack(Material.GOLD_HELMET, 1) });
         p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.IRON_SWORD, 1), new ItemStack(Material.BOW, 1), new ItemStack(Material.ARROW, 8), new ItemStack(Material.GOLDEN_APPLE, 3) }); }
   }
 
@@ -212,7 +212,6 @@ public class Arena
     if ((state.equals("active")) && (announce()))
     {
       String status;
-      String status;
       if ((arena.equals("hungergames")) || (arena.contains("race"))) status = secondsSince() / 60L + " minute" + (secondsSince() / 60L == 1L ? "" : "s") + " elapsed. "; else
         status = secondsSince() + " second" + (secondsSince() == 1L ? "" : "s") + " elapsed. ";
       if (arena.contains("race")) status = status + "In the lead: " + raceLeader();
@@ -225,8 +224,20 @@ public class Arena
       Double y = maxy; Double edgeDiff = Double.valueOf(Math.ceil(secondsSince() / decayInterval));
       if (event.equalsIgnoreCase("DoubleSpleef")) if (edgeDiff.doubleValue() < Math.ceil((maxx.doubleValue() - minx.doubleValue()) / 2.0D)) y = Double.valueOf(y.doubleValue() + 5.0D); else edgeDiff = Double.valueOf(edgeDiff.doubleValue() - Math.ceil((maxx.doubleValue() - minx.doubleValue()) / 2.0D));
       Object p = null; Integer typeID = Integer.valueOf(20);
-      if ((runCount + 4) % decayInterval == 0) { p = new Predicate() { public boolean test(Integer x) { return x.intValue() != 0; } } ;
-      } else if ((runCount + 1) % decayInterval == 0) { typeID = Integer.valueOf(0); p = new Predicate() { public boolean test(Integer x) { return x.intValue() == 20; } } ; }
+      if ((runCount + 4) % decayInterval == 0) { p = new Predicate() { public boolean test(Integer x) { return x.intValue() != 0; }
+
+	@Override
+	public boolean test(Object paramT) {
+		// TODO Auto-generated method stub
+		return false;
+	} } ;
+      } else if ((runCount + 1) % decayInterval == 0) { typeID = Integer.valueOf(0); p = new Predicate() { public boolean test(Integer x) { return x.intValue() == 20; }
+
+	@Override
+	public boolean test(Object paramT) {
+		// TODO Auto-generated method stub
+		return false;
+	} } ; }
       if (p != null) for (Double x = minx; x.doubleValue() <= maxx.doubleValue(); x = Double.valueOf(x.doubleValue() + 1.0D)) for (Double z = minz; z.doubleValue() <= maxz.doubleValue(); z = Double.valueOf(z.doubleValue() + 1.0D))
             if ((x.doubleValue() <= minx.doubleValue() + edgeDiff.doubleValue()) || (x.doubleValue() >= maxx.doubleValue() - edgeDiff.doubleValue()) || (z.doubleValue() <= minz.doubleValue() + edgeDiff.doubleValue()) || (z.doubleValue() >= maxz.doubleValue() - edgeDiff.doubleValue())) {
               Location l = new Location(world, x.doubleValue(), y.doubleValue(), z.doubleValue()); if (((Predicate)p).test(Integer.valueOf(l.getBlock().getTypeId()))) l.getBlock().setTypeId(typeID.intValue()); 
@@ -346,7 +357,7 @@ public class Arena
   void setup(PlayerInteractEvent event) {
     if ((event.getPlayer() != admin) || (event.getAction() != Action.RIGHT_CLICK_BLOCK)) return;
     if (arena.equals("hungergames")) {
-      Location loc = event.getClickedBlock().getLocation(); String[] pos = { loc.getWorld().getName(), loc.getX(), loc.getY(), loc.getZ() }; List posList = Arrays.asList(pos);
+      Location loc = event.getClickedBlock().getLocation(); String[] pos = { loc.getWorld().getName(), Double.toString(loc.getX()), Double.toString(loc.getY()), Double.toString(loc.getZ()) }; List posList = Arrays.asList(pos);
       if (setupState == 0) vitals.config("arena").set("arena." + arena + ".spectator", posList); else
         vitals.config("arena").set("arena." + arena + "." + setupState, posList);
       if (++setupState <= vitals.getConfig().getInt("arena_hungergamesmaxplayers")) { admin.sendMessage("Now right-click starting position " + setupState); } else {
@@ -354,13 +365,13 @@ public class Arena
       } } else if (arena.contains("race")) {
       String[] arenaPositions = { "spectator", "start", "finish" };
       String[] setMessages = { "Now right-click the start block.", "Now right-click the finish block.", "Arena has been defined! Ending setup mode." };
-      Location loc = event.getClickedBlock().getLocation(); String[] pos = { loc.getWorld().getName(), loc.getX(), loc.getY(), loc.getZ() };
+      Location loc = event.getClickedBlock().getLocation(); String[] pos = { loc.getWorld().getName(), Double.toString(loc.getX()), Double.toString(loc.getY()), Double.toString(loc.getZ()) };
       vitals.config("arena").set("arena." + arena + "." + arenaPositions[setupState], Arrays.asList(pos)); admin.sendMessage(setMessages[setupState]);
       if (++setupState >= arenaPositions.length) { state = "end"; arena = null; setupState = 0; vitals.saveConfig("arena"); }
     } else {
       String[] arenaPositions = { "spectator", "corner", "oppositecorner" };
       String[] setMessages = { "Now right-click a corner of the arena floor.", "Now right-click the opposite corner.", "Arena has been defined! Ending setup mode." };
-      Location loc = event.getClickedBlock().getLocation(); String[] pos = { loc.getWorld().getName(), loc.getX(), loc.getY(), loc.getZ() };
+      Location loc = event.getClickedBlock().getLocation(); String[] pos = { loc.getWorld().getName(), Double.toString(loc.getX()), Double.toString(loc.getY()), Double.toString(loc.getZ()) };
       vitals.config("arena").set("arena." + arena + "." + arenaPositions[setupState], Arrays.asList(pos)); admin.sendMessage(setMessages[setupState]);
       if (++setupState >= arenaPositions.length) { state = "end"; arena = null; setupState = 0; vitals.saveConfig("arena");
       }
