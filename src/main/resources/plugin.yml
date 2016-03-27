@@ -2,6 +2,7 @@ name: Vitals
 version: 0.37
 author: Gabezter4
 main: com.gabezter4.Vitals.Vitals
+depend: [Vault]
 commands:
   vhelp:
     description: List the current vitals settings from memory, or shows the size of hashmaps running in memory, or lists the latest 10 entries from the events log
